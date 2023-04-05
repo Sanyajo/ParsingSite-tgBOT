@@ -1,5 +1,4 @@
 import asyncio
-from aiogram.utils.markdown import hlink
 from aiogram import Bot, Dispatcher, executor, types
 from config import token_my, user_id
 from aiogram.dispatcher.filters import Text
@@ -15,7 +14,7 @@ async def start(message: types.Message):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
     keyboard.add(*start_buttons)
 
-    await message.answer("куфар",reply_markup=keyboard)
+    await message.answer("куфар LETS_GO",reply_markup=keyboard)
 
 @dp.message_handler(Text(equals="Обновить бд"))
 async def update_bd(message: types.Message):
@@ -26,8 +25,6 @@ async def update_bd(message: types.Message):
 async def get_all(message: types.Message):
     with open("dataBase.json") as file:
         new_dict = json.load(file)
-
-    # print(new_dict)
 
     for k, v in new_dict.items():
         art = f"{v['Название: ']}\n" \
@@ -47,7 +44,7 @@ async def new_art(message: types.Message):
                   f"{v['Цена: ']}\n"
         await message.answer(art)
     else:
-        await message.answer("No new")
+        await message.answer("Нет новых")
 
 async def new_art_hour():
     while True:
