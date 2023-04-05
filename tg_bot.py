@@ -29,7 +29,8 @@ async def get_all(message: types.Message):
     for k, v in new_dict.items():
         art = f"{v['Название: ']}\n" \
                 f"{v['Ссылка: ']}\n" \
-                f"{v['Цена: ']}\n"
+                f"{v['Цена: ']}\n" \
+                f"{v['Фото: ']}\n"
 
         await message.answer(art)
 
@@ -41,7 +42,8 @@ async def new_art(message: types.Message):
         for k, v in new_art.items():
             art = f"{v['Название: ']}\n" \
                   f"{v['Ссылка: ']}\n" \
-                  f"{v['Цена: ']}\n"
+                  f"{v['Цена: ']}\n" \
+                  f"{v['Фото: ']}\n"
         await message.answer(art)
     else:
         await message.answer("Нет новых")
@@ -53,7 +55,9 @@ async def new_art_hour():
         if len(new_art_HOUR) >= 1:
             for k, v in new_art.items():
                 art = f"{v['Название: ']}\n" \
-                      f"{v['Цена: ']}\n"
+                    f"{v['Ссылка: ']}\n" \
+                    f"{v['Цена: ']}\n" \
+                    f"{v['Фото: ']}\n"
 
                 await bot.send_message(user_id, art)
 
@@ -61,7 +65,6 @@ async def new_art_hour():
             await bot.send_message(user_id, "Новых объявлений не было!")
 
         await asyncio.sleep(3600)
-
 
 
 if __name__ == "__main__":

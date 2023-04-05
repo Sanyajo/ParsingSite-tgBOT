@@ -112,14 +112,9 @@ def check_new_art():
             continue
         k = k + 1
 
-            # print("Новая запись")
-
     with open("dataBase.json",'w') as file:
         json.dump(new_dict, file, indent=4, ensure_ascii=False)
 
     return fresh_dict
 
-if __name__ == "__main__":
-    print(get_first_art())
-    # print(check_new_art())
 
